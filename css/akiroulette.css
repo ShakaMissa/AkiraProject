@@ -1,0 +1,329 @@
+#roulettePage{
+    background-image: url("https://wallpapercave.com/wp/wp4304705.png"); /*test*/
+}
+
+:root {
+    --border-color-1: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    --border-color-2: linear-gradient(
+            233.36deg,
+            #010f13 35.38%,
+            #000604 94.78%
+    );
+
+    --size: 600px;
+}
+
+.main-wheel{
+    left: 300px;
+    top: -40px;
+    position: relative;
+    width: calc(var(--size) * 1.1);
+    height: calc(var(--size) * 1.1);
+    border-radius: 50%;
+    background-image: var(--border-color-2);
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.main-wheel::after{
+    content: "";
+    position: absolute;
+    width: calc(var(--size) * 1.05);
+    height: calc(var(--size) * 1.05);
+    border-radius: 50%;
+    background-image: var(--border-color-1);
+}
+
+.wheel{
+    overflow:hidden;
+    position: relative;
+    z-index: 1;
+    width: var(--size);
+    height: var(--size);
+    border-radius:50%;
+    background-color: #fff;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 7s;
+}
+
+.icon-arrow{
+    position: absolute;
+    width: 30px;
+    top: -10px;
+    z-index: 3;
+    left: 48.3%;
+    transform: translateX(-50%);
+}
+
+.btn-start {
+    position: relative;
+    z-index: 1;
+    font-family: "Helvetica", sans-serif;
+    background: #000000;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    top: -20px;
+    left: 34.2rem;
+    color: #dc281e;
+    border: 5px solid #dc281e;
+    font-size: 21px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+}
+
+.btn-start:hover {
+    background: #dc281e;
+    color: #000;
+    box-shadow: 0 0 50px #dc281e, 0 0 21px #dc281e;
+}
+
+.gift{
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    transform-origin: 0% 100%;
+}
+
+.text-item {
+    display:block;
+    position: absolute;
+    left: -100%;
+    height: 200%;
+    width: 200%;
+    text-align: center;
+    padding-top: 1.7rem;
+    color: rgb(255,255,255);
+    background: linear-gradient(98.3deg, #f00000, #dc281e);
+}
+
+.text-item.even{
+    background: linear-gradient(112.1deg, #000000, #434343);
+}
+
+.text-item > b {
+    font-family: OCR A Std, monospace;
+    display:inline-block;
+    word-break: break-word;
+    max-width:20%;
+    font-size: 1.8rem;
+}
+
+#main-roulette h1{
+
+    font-size: 5rem;
+    position: absolute;
+    top: 10%;
+    left: 1000px;
+    color: white;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.reveal-box::before{
+    content: '';
+
+    width: 300px;
+    height: 450px;
+    position: absolute;
+    z-index:3;
+    background-color: red;
+    animation: reveal-doggo 2000ms cubic-bezier(0.5, 1, 0.2, 1) forwards;
+
+}
+
+.reveal-box {
+    width: 300px;
+    height: 450px;
+    position: absolute;
+    top: 425px;
+    left: 1290px;
+    z-index: 2;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.reveal-box::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    background: linear-gradient(to right, #23b9ff, #8623ff, #ff116c);
+    animation: reveal-block 2000ms cubic-bezier(0.5, 1, 0.2, 1) forwards;
+    z-index: 4;
+}
+
+@keyframes reveal-block {
+    0% {
+        left: 0%;
+        width: 0%;
+    }
+
+    50% {
+        left: 0%;
+        width: 100%;
+    }
+
+    100% {
+        left: 100%;
+        width: 0%;
+    }
+}
+
+@keyframes reveal-doggo {
+
+    0% {
+        left: 0%;
+        width: 100%;
+    }
+
+    100% {
+        left: 100%;
+        width: 0%;
+    }
+}
+
+.char {
+    font-family: "Poppins", sans-serif;
+    -webkit-background-clip: text;
+    padding: 0 5px 0 5px;
+    margin-top: 60px;
+    position: relative;
+    background-image: linear-gradient(to right, #09f1b8, #00a2ff, #ff00d2, #fed90f);
+    -webkit-text-stroke-color: transparent;
+    -webkit-text-stroke-width: calc(1em/16);
+
+    color: #000000;
+    transform: translateY(115px);
+    transition: transform .5s;
+}
+
+.range{
+    position: relative;
+    height: 80px;
+    left: 80%;
+    top: 50px;
+    width: 380px;
+    background: #000000;
+    border-radius: 10px;
+    padding: 0 65px 0 45px;
+}
+
+.range .sliderValue{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.range .sliderValue span{
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+
+    color: #fff;
+    font-weight: 500;
+    top: -40px;
+    transform: translateX(-50%) scale(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease-in-out;
+    line-height: 55px;
+    z-index: 2;
+}
+
+.range .sliderValue span.show{
+    transform: translateX(-50%) scale(1);
+}
+
+.range .sliderValue span:after{
+    position: absolute;
+    content: "";
+    height: 45px;
+    width: 45px;
+    background: #ee0808;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border: 3px solid #090808;
+    z-index: -1;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.range .field{
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.range .field .value{
+    position: absolute;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ee0808;
+}
+
+.range .field .value.left{
+    left: -22px;
+}
+
+.range .field .value.right{
+    right: -43px;
+}
+
+.range .field input{
+    -webkit-appearance: none;
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.range.field input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    background: #ee0808;
+    border-radius: 50%;
+    border: 1px solid #ee0808;
+    cursor: pointer;
+}
+
+.bottombar{
+    position: absolute;
+    width: 50%;
+    height: 8%;
+    bottom: -13%;
+    left: 15%;
+
+
+}
+
+.box{
+    text-decoration: none;
+    color: #fff;
+
+    background-image:url('https://fs-prod-cdn.nintendo-europe.com/media/images/11_square_images/games_18/nintendo_switch_download_software/1x1_NSwitchDS_WaifuImpact.jpg');
+    background-size: 100px 120px;
+    position: relative;
+
+
+    padding: 50px 50px;
+    border-radius: 5px;
+
+
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #fff;
+    margin: 0px 15px;
+}
+
+.box:hover{
+    box-shadow: 0 0 3px #ffe205, 0 0 7px #ffe205, 0 0 20px #ffe205;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="icon" href="../img/MakimaIcon.png">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/shakibank.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <ul>
+            <li><a href="../index.html"><img src="../img/MakimaIcon.png" alt="MakimaIcon">AkirAccueil</a></li>
+            <li><a href="akiRoulette.html"><img src="../img/rouletteIcon.png" alt="rouletteIcon">AkiRoulette</a></li>
+            <li><a href="#"><img src="../img/planningIcon.png" alt="planningIcon">AkiPlanning</a></li>
+            <li><a href="#"><img src="../img/aliceIcon.png">AkiGalerie</a></li>
+            <li><a href="shakaEtat.html"><img src="../img/esdeathIcon.png">ShakaEtat</a></li>
+            <li><a href="#"><img src="../img/Azami.png">AkirAzami</a></li>
+            <li><a href="shakiBank.html"><img src="../img/yumekoIcon.png">Shakibank</a></li>
+        </ul>
+    </div>
+    <main class="mainContent">
+        <h1>Miam</h1>
+        <textarea></textarea>
+        <button>add comment</button>
+        <div class="comments">
+            <div class="comment">
+    
+            </div>
+    </div>
+    <script src="../js/bankData.js"></script>
+    <script>
+        function addComment(comment){
+            let html = `<div class="comment">
+            <p class="content">${comment.title}</p>
+            <p class="user">${comment.author}</p>
+            <p class="timestamp">${comment.date}</p>
+        </div>
+        `
+            container.insertAdjacentHTML('beforeend', html);
+        }
+
+        console.log(comments);
+        var container = document.querySelector('.comment')
+        for (let comment of comments) {
+            addComment(comment);
+        }
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function() {
+            /*let currentDate = (new Date().toLocaleString("en-US", {timeZone: '"Europe/Paris"'})).toJSON().slice(0, 10) + " " + (new Date().toLocaleString("en-US", {timeZone: '"Europe/Paris"'})).toJSON().slice(12, 19);*/
+            let currentDate = (new Date()).toLocaleString('fr-FR', { month: 'numeric', day: 'numeric', year: 'numeric' }) + " " + (new Date()).toLocaleString('fr-FR', { hour: 'numeric', minute: 'numeric', second: 'numeric'})
+            var txt = document.querySelector("textarea")
+            let comment = {
+                title: txt.value,
+                author: "Akira",
+                date: currentDate,
+            }
+            addComment(comment);
+
+            var url = "http://localhost:8080/shakiBank.html";
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+            }};
+            const json = {
+                content: txt.value,
+                date: currentDate
+            }
+            console.log(txt.value);
+            xhr.send(JSON.stringify(json));
+            
+        })
+    </script>
+</main>
+</div>
+</body>
+</html>

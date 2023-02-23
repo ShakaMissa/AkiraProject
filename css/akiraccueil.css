@@ -1,0 +1,23 @@
+#mainPage{
+    background-image: url("../img/makima.jpg"); /*test*/
+}
+
+.rainbow
+{
+    font-size: 42px;
+    -webkit-animation: anirain 5s linear infinite alternate;
+}
+
+.mainContent
+{
+    text-align:center;
+    display:block;
+}
+
+#flex-container
+{
+    margin-top: 5%;
+    display:flex;
+    justify-content: center;
+    align-content: space-between;
+}

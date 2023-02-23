@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Wouaf</title>
+<link rel="icon" href="../img/MakimaIcon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/akiroulette.css">
+<style>
+</style>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<body id="roulettePage">
+<div class="wrapper">
+  <div class="sidebar">
+    <ul>
+        <li><a href="../index.html"><img src="../img/MakimaIcon.png" alt="Makima1">AkirAccueil</a></li>
+        <li><a href="akiRoulette.html"><img src="../img/rouletteIcon.png">AkiRoulette</a></li>
+        <li><a href="#"><img src="../img/planningIcon.png">AkiPlanning</a></li>
+        <li><a href="#"><img src="../img/aliceIcon.png">AkiGalerie</a></li>
+        <li><a href="shakaEtat.html"><img src="../img/esdeathIcon.png">ShakaEtat</a></li>
+        <li><a href="#"><img src="../img/Azami.png">AkirAzami</a></li>
+        <li><a href="shakiBank.html"><img src="../img/yumekoIcon.png">Shakibank</a></li>
+    </ul>
+  </div>
+  <div class="bottombar">
+      <a href="#" class="box"></a>
+      <a href="#" class="box"></a>
+      <a href="#" class="box"></a>
+      <a href="#" class="box"></a>
+      <a href="#" class="box"></a>
+  </div>
+  <main id="main-roulette">
+    <div class="range">
+      <div class="sliderValue">
+        <span>100</span>
+      </div>
+      <div class="field">
+        <div class="value left">0</div>
+        <input type="range" min="0" max="200" value="100" step="1">
+        <div class="value right">200</div>
+      </div>
+    </div>
+     <div class="main-wheel">
+       <div class="icon-arrow">
+          <img src="../img/red_iconArrow.png">
+       </div>
+        <ul class="wheel"></ul>
+     </div>
+    <div>
+      <button class="btn-start">Wouaf !</button>
+    </div>
+    <h1 id="msg"></h1>
+    <div id="reveal-box">
+    </div>
+
+  </main>
+  <script type="text/javascript" src="../js/rouletteScript.js"></script>
+
+  <script src="https://unpkg.com/split-type"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</div>
+</body>
+</html>
